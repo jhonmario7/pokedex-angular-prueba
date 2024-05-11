@@ -1,0 +1,24 @@
+<!-- Será como nuestro div de todo. -->
+<main id="container">
+    <!--  -->
+    <app-detalle [pokemon] = "pokemonSeleccionado"
+    (clicked)="cambiarEstadoDetalle()"   
+    [abierto]="detalle"
+    [ngClass]="{abierto: detalle}"
+    ></app-detalle>
+    
+    <app-foto-pokemon [pokemon] = "pokemonSeleccionado" 
+    [ngClass]= "{abierto: detalle}">
+    </app-foto-pokemon>
+    
+    <!-- Evento con scrools para mostrar los demás elementos. -->
+    <div id="tarjetasContainer" #tarjetas (scroll)="onScroll($event)">
+        <!-- Metodos para la seleccion  -->
+        <app-tarjeta-pokemon *ngFor="let pokemon of listaPokemon" [data]="pokemon"
+        [seleccionado]="pokemon.name === pokemonSeleccionado?.name"
+        (clickeado)="tarjetaClikeada($event)"
+        >
+        </app-tarjeta-pokemon>
+        <img src="./../../../assets/img/spinner.svg" alt="Cargando" id="spinner" *ngIf='cargando'>
+    </div>
+</main>
