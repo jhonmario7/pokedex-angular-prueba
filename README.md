@@ -27,4 +27,4 @@ Esto abrirá automáticamente tu navegador predeterminado y cargarás la aplicac
 
 ## Visualización del resultado
 
-- https://scrbnll-pokedex.netlify.app/
+- 
